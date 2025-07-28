@@ -1,5 +1,4 @@
 
-
 import asyncio
 import time
 import httpx
@@ -49,11 +48,11 @@ async def json_to_proto(json_data: str, proto_message: Message) -> bytes:
 
 def get_account_credentials(region: str) -> str:
     r = region.upper()
-    if r == "IND":
-        return "uid=4025167895&password=EB7D45B6B897206B9B0EE1662D9B4EF9A90B04CFEE404975058B9360C51BD5AE"
+    if r == "ME":
+        return "uid=3831627617&password=CAC2F2F3E2F28C5F5944D502CD171A8AAF84361CDC483E94955D6981F1CFF3E3"
     elif r == "BD":
         return "uid=3957595605&password=7203510AB3D87E06CE54FC93ABE40D48AA6AEA55E2DEA2D2AA3487CBB20650D7"
-    elif r in {"BR", "US", "SAC", "NA"}:
+    elif r in {"BR", "US", "SAC", "ME"}:
         return "uid=3788023112&password=5356B7495AC2AD04C0A483CF234D6E56FB29080AC2461DD51E0544F8D455CC24"
     else:
         return "uid=3301239795&password=DD40EE772FCBD61409BB15033E3DE1B1C54EDA83B75DF0CDD24C34C7C8798475"
