@@ -1,7 +1,10 @@
+
+
 import asyncio
 import time
 import httpx
 import json
+import os
 from collections import defaultdict
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -209,4 +212,4 @@ if __name__ == '__main__':
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     loop.run_until_complete(startup())
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
