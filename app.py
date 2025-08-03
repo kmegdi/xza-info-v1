@@ -18,7 +18,7 @@ import base64
 # === Settings ===
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')
 MAIN_IV = base64.b64decode('Nm95WkRyMjJFM3ljaGpNJQ==')
-RELEASEVERSION = "OB49"
+RELEASEVERSION = "OB50"
 USERAGENT = "Dalvik/2.1.0 (Linux; U; Android 13; CPH2095 Build/RKQ1.211119.001)"
 SUPPORTED_REGIONS = {"IND", "BR", "US", "SAC", "NA", "SG", "RU", "ID", "TW", "VN", "TH", "ME", "PK", "CIS", "BD", "EU"}
 
@@ -109,7 +109,7 @@ async def get_token_info(region: str) -> Tuple[str, str, str]:
 async def get_region_by_uid(uid: str) -> str:
     """Fetch player region using external API"""
     async with httpx.AsyncClient() as client:
-        resp = await client.get(f"https://get-region-xza.vercel.app/region?uid={uid}")
+        resp = await client.get(f"https://xza-get-region.vercel.app/region?uid={uid}")
         if resp.status_code != 200:
             raise ValueError("Failed to fetch region")
         data = resp.json()
